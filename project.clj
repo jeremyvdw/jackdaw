@@ -44,7 +44,7 @@
   :git-version
   {:status-to-version
    (fn [{:keys [tag branch ahead? dirty?] :as git}]
-     (if (and tag (not ahead?) (not dirty?) (= "master" branch))
+     (if (and tag (not ahead?) (not dirty?))
        tag
        (let [[_ prefix patch] (re-find #"(\d+\.\d+)\.(\d+)" tag)
              patch            (Long/parseLong patch)
